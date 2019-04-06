@@ -1,0 +1,120 @@
+# If you want to convert text files to native line endings (CRLF on Windows)
+# on checkout, configure your Git client to do it (e.g. don't change anything:
+# default values: core.autocrlf=false and core.eol=native; or set core.autocrlf=true).
+
+
+# File masks and file names are case insensitive on Windows file systems. It is
+# supported by Git, so *.sh works also for file UPPER.SH.
+
+
+# Detect all text files and automatically normalize them (convert CRLF to LF).
+# Other files should not be modified, they are detected as binary files.
+*            text=auto
+
+
+# Explicitly declare text files you want to always be normalized.
+*.c          text diff=cpp
+*.cc         text diff=cpp
+*.cxx        text diff=cpp
+*.cpp        text diff=cpp
+*.c++        text diff=cpp
+*.hpp        text diff=cpp
+*.h          text diff=cpp
+*.h++        text diff=cpp
+*.hh         text diff=cpp
+*.tlh        text diff=cpp
+*.tli        text diff=cpp
+
+# We let Git autodetect following extensions for text files:
+#*.xml        text
+#*.rels       text
+#*.txt        text
+#*.bat        text
+#*.rst        text
+#*.natvis     text
+#*.natjmc     text
+#*.vsspell    text
+#*.dic        text
+#*.json       text
+#*.manifest   text
+#*.html       text
+#*.css        text
+#*.frm        text
+#*.vbp        text
+#*.bas        text
+#*.def        text
+#*.rc         text
+#*.rh         text
+
+
+# Explicitly declare text files you want to always be normalized and converted
+# to LF endings on checkout.
+*.sh         text eol=lf
+*.svg        text eol=lf
+
+
+# Explicitly declare text files you want to always be normalized and converted
+# to CRLF endings on checkout.
+*.sln        text eol=crlf
+*.csproj     text eol=crlf
+*.vbproj     text eol=crlf
+*.vcxproj    text eol=crlf
+*.vcproj     text eol=crlf
+*.dbproj     text eol=crlf
+*.fsproj     text eol=crlf
+*.lsproj     text eol=crlf
+*.wixproj    text eol=crlf
+*.modelproj  text eol=crlf
+*.sqlproj    text eol=crlf
+*.wmaproj    text eol=crlf
+*.xproj      text eol=crlf
+*.props      text eol=crlf
+*.filters    text eol=crlf
+*.vcxitems   text eol=crlf
+*.user       text eol=crlf
+
+# Denote all text files that should not be modified. Diff should treat them as
+# text, even when they contain byte values that normally never appear in text
+# files, such as NUL.
+#*.dhx        -text diff
+
+
+# Explicitly declare text files with other encoding (e.g. UTF-16, UTF-16LE).
+# You want them to always be reencoded to UTF-8 and normalized, and then
+# converted back to original encoding on checkout.
+# Use it only if you want Git to be able to process the content as text.
+# Warning: alternative Git implementations do not support this.
+
+# when text files contain BOM:
+# Hint: use UTF-16LE-BOM for files with UTF16-LE with BOM and UTF-16 for files
+#       with UTF16-BE with BOM (Git sets this encoding on checkout).
+*.rh         text working-tree-encoding=UTF-16LE-BOM
+*.rc         text working-tree-encoding=UTF-16LE-BOM
+*.rc2        text working-tree-encoding=UTF-16LE-BOM
+
+# when BOM is missing and encoding is UTF-16LE:
+#*.u16le      text working-tree-encoding=UTF-16LE
+
+
+# Denote all files that are truly binary and should not be modified.
+# (binary is a macro for -text -diff)
+*.zip        binary
+*.exe        binary
+*.pch        binary
+*.pdb        binary
+*.dll        binary
+*.lib        binary
+*.bmp        binary
+*.emf        binary
+*.jpg        binary
+*.jpeg       binary
+*.png        binary
+*.gif        binary
+*.ico        binary
+*.cur        binary
+*.raw        binary
+*.key        binary
+
+# We let Git autodetect following extensions for binary files:
+#*.xcf        binary
+#*.frx        binary
